@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RecipeMapper">
+	
+	<insert id="insertRecipe" parameterType="com.recipe.vo.Recipe">
+		INSERT INTO 
+		R_RECIPE(RID, RNAME, RITEM, RIMAGE, RRECIPE, RCONTENT)
+		VALUES(RECIPE_SEQ.NEXTVAL, #{rname}, #{ritem}, #{rimage, jdbcType=BLOB}, #{rrecipe}, #{rcontent})
+	</insert>
+	
+	<insert id="insertComment" parameterType="com.recipe.vo.Comment">
+		INSERT INTO R_COMMENT VALUES(COMMENT_SEQ.NEXTVAL, #{rid}, #{mid}, #{content})
+	</insert>
+	
+	
+	
+	<resultMap id="image" type="com.recipe.vo.Recipe">
+		<result column="RIMAGE" property="rimage" jdbcType="BLOB" javaType="[B"/>
+	</resultMap>
+	
+	<select id="rankRecipeList" resultType="com.recipe.vo.Recipe">
+		SELECT * FROM R_RECIPE ORDER BY SCORE_AVG DESC
+	</select>
+	
+	<select id="selectImage" parameterType="int" resultMap="image">
+		SELECT RIMAGE FROM R_RECIPE WHERE RID=#{id}
+	</select>
+	
+	<select id="selectThumnail" parameterType="int" resultMap="image">
+		SELECT THUMNAIL FROM R_RECIPE WHERE RID=#{id}
+	</select>
+	
+	<select id="selectRecipeOne" parameterType="int" resultType="com.recipe.vo.Recipe">
+		SELECT * FROM R_RECIPE WHERE RID=#{id}
+	</select>
+	
+	<select id="selectComment" parameterType="int" resultType="com.recipe.vo.Comment">
+		SELECT * FROM R_COMMENT WHERE RID=#{id}
+	</select>
+	
+	<delete id="deleteComment" parameterType="int" >
+		DELETE FROM R_COMMENT WHERE CID=#{cid}
+	</delete>
+	
+	<update id="updateScore" parameterType="com.recipe.vo.Recipe">
+		UPDATE R_RECIPE 
+		SET SCORE_NUM = SCORE_NUM + 1, SCORE_ALL = SCORE_ALL + #{score_all}
+		WHERE RID = #{rid}
+	</update>
+	
+	<update id="updateAvgScore" parameterType="com.recipe.vo.Recipe">
+		UPDATE R_RECIPE 
+		SET SCORE_AVG = #{score_avg}
+		WHERE RID = #{rid}
+	</update>
+	
+	<update id="updateThumnail" parameterType="com.recipe.vo.Recipe">
+		UPDATE R_RECIPE 
+		SET THUMNAIL = #{thumnail, jdbcType=BLOB}
+		WHERE RID = #{rid}
+	</update>
+	
+	<update id="updateHit" parameterType="int">
+		UPDATE R_RECIPE 
+		SET RHIT = RHIT+1
+		WHERE RID = #{id}
+	</update>
+</mapper>

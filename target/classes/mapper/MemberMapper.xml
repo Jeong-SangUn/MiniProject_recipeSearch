@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Cook_Member">
+
+
+
+	<insert id="insertMemberOne" parameterType="map">
+		INSERT INTO
+		R_MEMBER(MID,PW,NAME,AGE,PHONE,ADDR,MEM_BIRTH)
+		VALUES(#{m_id}, #{m_pw},
+		#{m_name},#{m_age},#{m_phone},#{m_addr},#{m_birth})
+	</insert>
+
+	<select id="selectMemberLogin" parameterType="map"
+		resultType="map">
+		SELECT
+		MID,PW,NAME,GRADE
+		FROM
+		R_MEMBER
+		WHERE
+		MID=#{m_id} AND
+		PW=#{m_pw}
+	</select>
+
+	<select id="selectoverlap" parameterType="map" resultType="map">
+		SELECT
+		MID
+		FROM
+		R_MEMBER
+		WHERE
+		MID=#{m_id}
+	</select>
+
+	<insert id="insertMemberScoreInfo" parameterType="map">
+		INSERT INTO
+		HITSCORE(MID, MSCORE)
+		VALUES(#{mid},#{mscore})
+	</insert>
+	
+	<insert id="insertMemberHitInfo" parameterType="map">
+		INSERT INTO
+		HITSCORE(MID, MHIT)
+		VALUES(#{mid},#{mhit})
+	</insert>
+	
+	<update id="updateMemberScoreInfo" parameterType="map">
+		UPDATE HITSCORE 
+		SET MSCORE = MSCORE||#{mscore}
+		WHERE MID=#{mid}
+	</update>
+	
+	<update id="updateMemberHitInfo" parameterType="map">
+		UPDATE HITSCORE 
+		SET MHIT = MHIT||#{mhit}
+		WHERE MID=#{mid}
+	</update>
+	
+	<select id="selectMemberTable" parameterType="string" resultType="map">
+		SELECT *
+		FROM HITSCORE
+		WHERE MID = #{mid}
+	</select>
+</mapper>
