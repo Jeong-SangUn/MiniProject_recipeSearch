@@ -8,24 +8,52 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-  <title>사용방법</title>
+<title>레시피를 부탁해</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link
+	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="${pageContext.request.contextPath}/resources/css/full-width-pics.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Song+Myung&display=swap&subset=korean" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/full-width-pics.css"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean" rel="stylesheet">
 <style>
-#pfont{
-	font-family: 'Song Myung', serif;
+h1{
+	font-family: 'Jua', sans-serif;
+	font-size: 4.0em;
 }
+img {
+    width: 250px;
+    height:300px;
+    border-radius: 150px; /* 이미지 반크기만큼 반경을 잡기*/
+    text-align: center;
+}
+.container1 {
+    width: 1400px;
+    height: 400px;
+    position: absolute;
+    margin-left: -200px;
+    margin-top: -100px;
+    left: 24%;
+    top: 30%;
+}
+
+ul.img {
+		font-family: 'Jua', sans-serif;
+		font-size: 1.5em;
+        list-style-image: url( "${pageContext.request.contextPath}/resources/img/icon1.png" );
+      }
 </style>
+
 </head>
 
 <body>
@@ -37,7 +65,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      	<c:if test="${sessionScope.GRADE eq null}">
+      		<c:if test="${sessionScope.GRADE eq null}">
 		      <div class="collapse navbar-collapse" id="navbarResponsive">
 		        <ul class="navbar-nav ml-auto">
 		        <li class="nav-item active">
@@ -101,59 +129,57 @@
 	      </c:if>
     </div>
   </nav>
-	
-	
-	<!-- Header - set the background image for the header in the line below -->
-  <section class="py-5 bg-image-full" style="background-image: url('${pageContext.request.contextPath}/resources/img/use_1.jpg');opacity: 0.5;">
-    <div style="height: 200px;"></div>
-  </section>
-
-  <!-- Content section -->
-  <section class="py-5" style="background: linear-gradient(to bottom, #FFFDF7 0%, #FEF8E6 86%);">
-    <div class="container" >
-      <h1 id="pfont">로그인 후 모든 기능 이용 가능</h1><br>
-      <h4>레시피를 부탁해는 로그인 후에 이용가능 합니다.</h4>
-    </div>
-    
-    
-  </section>
-  <!-- Header - set the background image for the header in the line below -->
-  <section class="py-5 bg-image-full" style="background-image: url('${pageContext.request.contextPath}/resources/img/use_2.jpg');opacity: 0.5;">
-    <div style="height: 200px;"></div>
-  </section>
-
-  <!-- Content section -->
-  <section class="py-5" style="background: linear-gradient(to bottom, #FFFEFC 0%, #FEF8E6 86%);">
-    <div class="container">
-      <h1 id="pfont">레시피 인기 순위 확인</h1><br>
-      <h4>각각의 레시피의 평점과 조회를 보고 원하는 레시피 선택이 가능합니다.</h4>
-    </div>
-  </section>
-  
-  <section class="py-5 bg-image-full" style="background-image: url('${pageContext.request.contextPath}/resources/img/use_3.jpg');opacity: 0.5;">
-    <div style="height: 200px;"></div>
-  </section>
-
-  <!-- Content section -->
-  <section class="py-5" style="background: linear-gradient(to bottom, #FFFEFC 0%, #FEF8E6 86%);">
-    <div class="container">
-      <h1 id="pfont">요리 이름으로 검색</h1><br>
-      <h4>자신이 먹고 싶은 요리 이름으로 검색이 가능합니다.</h4>
-    </div>
-  </section>
-	
-	
-  <section class="py-5 bg-image-full" style="background-image: url('${pageContext.request.contextPath}/resources/img/use_4.jpg');opacity: 0.5;">
-    <div style="height: 200px;"></div>
-  </section>
-
-  <!-- Content section -->
-  <section class="py-5" style="background: linear-gradient(to bottom, #FFFEFC 0%, #FEF8E6 86%);">
-    <div class="container" >
-      <h1 id="pfont">재료 검색 기능 제공</h1><br>
-      <h4>들어가는 재료 검색을 통해 레시피를 선택할 수 있습니다.<br/>
-      	재료를 2개 이상 입력 시 재료이름 쓰고 띄어쓰기 순으로 입력해야합니다. (예: 소금 간장 돼지고기)<br/>
-      	검색시 두음절 이상의 이름으로 검색해야 결과값이 정확합니다. (예: 파(x)-> 대파 / 쪽파(O) )</h4>
+  <section class="py-5 bg-image-full " style="background-color: #FCF8F3;" >
+    <div style="height: 700px;" > 
+    	<div style="text-align: left;" class="container1">
+    		<div style="width:250px; background-color: #FCF8F3; float: left; text-align: left;" >
+    			<div style="text-align: center;">
+    				<img src="${pageContext.request.contextPath}/resources/img/make_people1.png"><br>
+    			</div>
+    			<h1 style="text-align: center;">신경종</h1>
+    			<ul class="img">
+    				<li>DB 설계 및 관리</li>
+    			</ul>
+    		</div>
+    		<div style="width:100px; background-color: #FCF8F3; float: left; "><br></div>
+    		
+    		<div style="width:250px; background-color: #FCF8F3; float: left; text-align: left;">
+    			<div style="text-align: center;">
+    				<img src="${pageContext.request.contextPath}/resources/img/make_people2.png"><br>
+    			</div>
+    			<h1 style="text-align: center;">정상운</h1>
+    			<ul class="img">
+    				<li>레시피 검색 및 출력</li>
+    				<li>평점 및 댓글 기능</li>
+    			</ul>
+    		</div>
+    		
+    		<div style="width:100px; background-color: #FCF8F3; float: left; "><br></div>
+    		
+    		<div style="width:250px; background-color: #FCF8F3; float: left; text-align: left;">
+    			<div style="text-align: center;">
+    				<img src="${pageContext.request.contextPath}/resources/img/make_people3.png"><br>
+    			</div>
+    			<h1 style="text-align: center;">정광수</h1>
+    			<ul class="img">
+    				<li>로그인 및 회원가입</li>
+    				<li>마이페이지 관리</li>
+    			</ul>
+    		</div>
+    		
+    		<div style="width:100px; background-color: #FCF8F3; float: left; "><br></div>
+    		
+    		<div style="width:250px; background-color: #FCF8F3; float: left; text-align: left;">
+    			<div style="text-align: center;">
+    				<img src="${pageContext.request.contextPath}/resources/img/make_people4.png"><br>
+    			</div>
+    			<h1 style="text-align: center;">이기영</h1>
+    			<ul class="img">
+    				<li>관리자 페이지</li>
+    				<li>레시피 등록/수정/삭제</li>
+    			</ul>
+    		</div>
+    	</div>
     </div>
   </section>
 
@@ -164,10 +190,10 @@
     </div>
     <!-- /.container -->
   </footer>
-
+  
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

@@ -26,4 +26,9 @@ public class MainController {
 		return "use"; 
 	}
 	
+	@RequestMapping(value="/makepeople.do", method = RequestMethod.GET)
+	public String makepeople() {
+		return "makepeople"; 
+	}
+	
 }
