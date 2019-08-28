@@ -52,7 +52,12 @@ public class RecipeController {
 		return "rank";
 
 	}
-
+	
+	@RequestMapping(value = "/rankhelp.do", method = RequestMethod.GET)
+	public String rankhelp() {
+		return "rankhelp";
+	}
+	
 	@RequestMapping(value = "/updateScore.do", method = RequestMethod.GET)
 	public String updateScore(@RequestParam("score") double score, @RequestParam("rid") int rid,
 			HttpSession httpSession, Model model) {
@@ -235,4 +240,62 @@ public class RecipeController {
 		return "redirect:thumnail.do";
 
 	}
+	
+//	---------------------------------------------------------
+	@RequestMapping(value = "/admin.do", method = RequestMethod.GET)
+	public String admin(Model model) {
+		List<Recipe> selList = rDAO.selectRecipeList();
+		model.addAttribute("list", selList);
+		return "admin";
+	}
+
+	
+	  @RequestMapping(value = "/admin_insert.do", method = RequestMethod.GET)
+	  public String admin_insert() { return "admin_insert"; }
+	  
+	  @RequestMapping(value = "/admin_insert.do", method = RequestMethod.POST)
+	  public String admin_insert(Recipe recipe, MultipartHttpServletRequest request) { 
+		  try { 
+			  MultipartFile file = request.getFile("rimage1");
+			  recipe.setRimage(file.getBytes()); 
+			  rDAO.insertRecipe(recipe);
+			  	return "redirect:admin_insert.do"; 
+			  } catch (Exception e) { 
+				return "redirect:admin_insert.do"; 
+			  } 
+		  }
+	  
+	  @RequestMapping(value="/admin_delete.do", method=RequestMethod.GET)
+	  public String admin_delete(@RequestParam("id") int rid) {
+		  rDAO.deleteRecipeOne(rid);
+		  return "redirect:admin.do";		  
+	  }
+	 
+	
+	  @RequestMapping(value = "/admin_update.do", method = RequestMethod.GET)
+	  public String admin_update(@RequestParam("id") String rid, Model model,
+	  HttpSession httpSession) { int id = Integer.parseInt(rid);
+	  
+	  Recipe recipe = rDAO.selectRecipeOne(id);
+	  
+	  String item = recipe.getRitem(); item = item.replace("양념장", "\n양념장");
+	  recipe.setRitem(item); item = recipe.getRrecipe(); for (int i = 1; i < 10;
+	  i++) { item = item.replace(Integer.toString(i) + ". ", "\n" +
+	  Integer.toString(i) + "."); } recipe.setRrecipe(item);
+	  model.addAttribute("recipe", recipe);	  
+	  return "admin_update"; 
+	  }	  
+
+	  @RequestMapping(value = "/admin_update.do", method = RequestMethod.POST)
+	  public String admin_update(@ModelAttribute Recipe recipe, MultipartHttpServletRequest request) {
+		  int rid=recipe.getRid();
+		  try {
+			  MultipartFile file = request.getFile("rimage1");
+			  recipe.setRimage(file.getBytes());
+			  rDAO.updateRecipeOne(recipe);
+			  	return "redirect:admin_update.do?id="+rid; 
+			  } catch (Exception e) { 
+				return "redirect:admin_update.do?id="+rid;
+		  }
+	  }
 }

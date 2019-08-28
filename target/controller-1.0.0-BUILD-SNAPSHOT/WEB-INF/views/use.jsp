@@ -13,7 +13,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Full Width Pics - Start Bootstrap Template</title>
+  <title>사용방법</title>
 
   <!-- Bootstrap core CSS -->
   <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,10 +28,26 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="${pageContext.request.contextPath}/home.do">레시피를 부탁해</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      	<c:if test="${sessionScope.GRADE eq null}">
+		      <div class="collapse navbar-collapse" id="navbarResponsive">
+		        <ul class="navbar-nav ml-auto">
+		        <li class="nav-item active">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/login.do">로그인
+		              <span class="sr-only">(current)</span>
+		            </a>
+		          </li>
+		          <li class="nav-item active">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/use.do">사용방법
+		              <span class="sr-only">(current)</span>
+		            </a>
+		          </li>
+		        </ul>
+		      </div>
+	      </c:if>
 	      <c:if test="${sessionScope.GRADE eq 1}">
 		      <div class="collapse navbar-collapse" id="navbarResponsive">
 		        <ul class="navbar-nav ml-auto">
@@ -46,10 +62,13 @@
 		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/use.do">사용방법</a>
 		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a>
+		          </li>
 		        </ul>
 		      </div>
 	      </c:if>
-	      <c:if test="${sessionScope.GRADE eq 2}">
+	      <c:if test="${sessionScope.GRADE eq 9}">
 		      <div class="collapse navbar-collapse" id="navbarResponsive">
 		        <ul class="navbar-nav ml-auto">
 		          <li class="nav-item active">
@@ -64,41 +83,72 @@
 		            <a class="nav-link" href="${pageContext.request.contextPath}/use.do">사용방법</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link" href="#">레시피 등록</a>
+		            <a class="nav-link" href="${pageContext.request.contextPath}/admin_insert.do">레시피 등록</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link" href="#">레시피 편집</a>
+		            <a class="nav-link" href="${pageContext.request.contextPath}/admin.do">레시피 편집</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a>
 		          </li>
 		        </ul>
 		      </div>
 	      </c:if>
     </div>
   </nav>
-
-  <!-- Header - set the background image for the header in the line below -->
-  <header class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1076');">
-    <img class="img-fluid d-block mx-auto" src="http://placehold.it/200x200&text=Logo" alt="">
-  </header>
-
-  <!-- Content section -->
-  <section class="py-5">
-    <div class="container">
-      <h1>Section Heading</h1><br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
-    </div>
-  </section>
-
-  <!-- Image Section - set the background image for the header in the line below -->
-  <section class="py-5 bg-image-full" style="background-image: url('https://unsplash.it/1900/1080?image=1081');">
-    <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
+	
+	
+	<!-- Header - set the background image for the header in the line below -->
+  <section class="py-5 bg-image-full" style="background-image: url('${pageContext.request.contextPath}/resources/img/use_1.jpg');opacity: 0.5;">
     <div style="height: 200px;"></div>
   </section>
 
   <!-- Content section -->
   <section class="py-5">
     <div class="container">
-      <h1>Section Heading</h1><br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
+      <h1>로그인 후 모든 기능 이용 가능</h1><br>
+      <p>레시피를 부탁해는 로그인 후에 이용가능 합니다.</p>
+    </div>
+    
+    
+  </section>
+  <!-- Header - set the background image for the header in the line below -->
+  <section class="py-5 bg-image-full" style="background-image: url('${pageContext.request.contextPath}/resources/img/use_2.jpg');opacity: 0.5;">
+    <div style="height: 200px;"></div>
+  </section>
+
+  <!-- Content section -->
+  <section class="py-5">
+    <div class="container">
+      <h1>레시피 인기 순위 확인</h1><br>
+      <p>각각의 레시피의 평점과 조회를 보고 원하는 레시피 선택이 가능합니다.</p>
+    </div>
+  </section>
+  
+  <section class="py-5 bg-image-full" style="background-image: url('${pageContext.request.contextPath}/resources/img/use_3.jpg');opacity: 0.5;">
+    <div style="height: 200px;"></div>
+  </section>
+
+  <!-- Content section -->
+  <section class="py-5">
+    <div class="container">
+      <h1>요리 이름으로 검색</h1><br>
+      <p>자신이 먹고 싶은 요리 이름으로 검색이 가능합니다.</p>
+    </div>
+  </section>
+	
+	
+  <section class="py-5 bg-image-full" style="background-image: url('${pageContext.request.contextPath}/resources/img/use_4.jpg');opacity: 0.5;">
+    <div style="height: 200px;"></div>
+  </section>
+
+  <!-- Content section -->
+  <section class="py-5">
+    <div class="container">
+      <h1>재료 검색 기능 제공</h1><br>
+      <p>들어가는 재료 검색을 통해 레시피를 선택할 수 있습니다.<br/>
+      	재료를 2개 이상 입력 시 재료이름 쓰고 띄어쓰기 순으로 입력해야합니다. (예: 소금 간장 돼지고기)<br/>
+      	검색시 두음절 이상의 이름으로 검색해야 결과값이 정확합니다. (예: 파(x)-> 대파 / 쪽파(O) )</p>
     </div>
   </section>
 

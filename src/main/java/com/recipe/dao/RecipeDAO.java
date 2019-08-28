@@ -96,5 +96,21 @@ public class RecipeDAO implements RecipeService{
 		// TODO Auto-generated method stub
 		return sqlSession.update("RecipeMapper.updateHit",rid);
 	}
-
+//	------------------------------------------------------------
+	@Override
+	public List<Recipe> selectRecipeList() {
+		// TODO Auto-generated method stub
+		
+		return sqlSession.selectList("RecipeMapper.selectRecipeList");
+	}
+	
+	@Override
+	public int deleteRecipeOne(int rid) {
+		return sqlSession.delete("RecipeMapper.deleteRecipeOne", rid);
+	}
+	
+	@Override
+	public int updateRecipeOne(Recipe recipe) {
+		return sqlSession.update("RecipeMapper.updateRecipeOne", recipe);
+	}
 }

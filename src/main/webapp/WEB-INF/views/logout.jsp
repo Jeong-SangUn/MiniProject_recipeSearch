@@ -8,7 +8,7 @@
 </head>
 <script>
 	alert("${msg}");
-	location.href = "/jsu/home.do";
+	location.href = "/controller/home.do";
 </script>
 
 <body>

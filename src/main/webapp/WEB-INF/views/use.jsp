@@ -83,10 +83,10 @@
 		            <a class="nav-link" href="${pageContext.request.contextPath}/use.do">사용방법</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link" href="#">레시피 등록</a>
+		            <a class="nav-link" href="${pageContext.request.contextPath}/admin_insert.do">레시피 등록</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link" href="#">레시피 편집</a>
+		            <a class="nav-link" href="${pageContext.request.contextPath}/admin.do">레시피 편집</a>
 		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a>

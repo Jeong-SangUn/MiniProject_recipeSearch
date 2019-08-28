@@ -33,4 +33,9 @@ public interface RecipeService {
 	public int updateScore(Recipe recipe);
 
 	public int updateAvgScore(Recipe recipe);
+	
+	//-------------------------------------------
+	public List<Recipe> selectRecipeList();
+	public int deleteRecipeOne(int rid);
+	public int updateRecipeOne(Recipe recipe);
 }

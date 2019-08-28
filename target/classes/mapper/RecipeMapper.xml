@@ -66,4 +66,22 @@
 		SET RHIT = RHIT+1
 		WHERE RID = #{id}
 	</update>
+	
+	<!-- /////////////////////////////////////////////////////////////////// -->
+	
+	<select id="selectRecipeList" resultType="com.recipe.vo.Recipe">
+		SELECT * FROM R_RECIPE
+	</select>
+	<delete id="deleteRecipeOne" parameterType="int">
+		DELETE FROM R_RECIPE WHERE RID=#{rid}
+	</delete>
+	<update id="updateRecipeOne" parameterType="com.recipe.vo.Recipe">
+		UPDATE R_RECIPE 
+		SET RNAME = #{rname},
+			RIMAGE = #{rimage},
+			RITEM = #{ritem},
+			RCONTENT = #{rcontent},
+			RRECIPE = #{rrecipe}			
+		WHERE RID = #{rid}
+	</update> 
 </mapper>
