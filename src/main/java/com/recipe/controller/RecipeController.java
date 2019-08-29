@@ -74,17 +74,12 @@ public class RecipeController {
 			mDAO.insertMemberScoreInfo(map);
 		} else {
 			String score_chk = "";
-			System.out.println("score_chk+ 전: "+ score_chk);
 			score_chk = score_chk+(String)mid_chk.get("MSCORE");
-			System.out.println("score_chk:"+score_chk);
-			System.out.println("Integer.toString(rid) + /: "+Integer.toString(rid) + "/");
 			if (score_chk.contains(Integer.toString(rid) + "/")) {
-				System.out.println(1);
-				model.addAttribute("score_chk", true);
+				model.addAttribute("score_chk", "score_ture");
 				return "redirect:recipe.do?id=" + rid;
 			} else {
 				mDAO.updateMemberScoreInfo(map);
-				System.out.println(2);
 			}
 		}
 		Recipe recipe = new Recipe();
@@ -139,6 +134,7 @@ public class RecipeController {
 		List<Comment> comment = rDAO.selectComment(id);
 		String item = recipe.getRitem();
 		item = item.replace("양념장", "\n양념장");
+		item = item.replace("재료준비", " 재료준비");
 		recipe.setRitem(item);
 		item = recipe.getRrecipe();
 		for (int i = 1; i < 10; i++) {

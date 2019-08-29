@@ -62,17 +62,16 @@
 		              <span class="sr-only">(current)</span>
 		            </a>
 		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/makepeople.do">만든사람들</a>
+		          </li>
 		        </ul>
 		      </div>
 	      </c:if>
 	      <c:if test="${sessionScope.GRADE eq 1}">
 		      <div class="collapse navbar-collapse" id="navbarResponsive">
 		        <ul class="navbar-nav ml-auto">
-		          <li class="nav-item active">
-		            <a class="nav-link" href="${pageContext.request.contextPath}/home.do">Home
-		              <span class="sr-only">(current)</span>
-		            </a>
-		          </li>
+		          
 		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/rank.do">검색&인기순위</a>
 		          </li>
@@ -82,17 +81,21 @@
 		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a>
 		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/list.do?mid=${sessionScope.S_ID}">마이페이지</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/delete.do?mid=${sessionScope.S_ID}">회원탈퇴</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/makepeople.do">만든사람들</a>
+		          </li>
 		        </ul>
 		      </div>
 	      </c:if>
 	      <c:if test="${sessionScope.GRADE eq 9}">
 		      <div class="collapse navbar-collapse" id="navbarResponsive">
 		        <ul class="navbar-nav ml-auto">
-		          <li class="nav-item active">
-		            <a class="nav-link" href="${pageContext.request.contextPath}/home.do">Home
-		              <span class="sr-only">(current)</span>
-		            </a>
-		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/rank.do">검색&인기순위</a>
 		          </li>
@@ -108,14 +111,17 @@
 		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a>
 		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/makepeople.do">만든사람들</a>
+		          </li>
 		        </ul>
 		      </div>
 	      </c:if>
     </div>
   </nav>
-  <section class="py-5 bg-image-full" style="background-image: url('${pageContext.request.contextPath}/resources/img/cookbackground.jpg');opacity: 0.1;">
+  <section class="py-5 bg-image-full" style="background-image: url('${pageContext.request.contextPath}/resources/img/background.jpg');">
     <div style="height: 700px;"> 
-    	<p id="homeletter">레시피를 부탁해</p>
+    	<p id="homeletter">레시피를 부탁해</p>	
     </div>
   </section>
 

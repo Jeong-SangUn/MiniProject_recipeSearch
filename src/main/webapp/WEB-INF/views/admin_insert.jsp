@@ -86,31 +86,30 @@ height:400px;
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>	
+	      <c:if test="${sessionScope.GRADE eq 9}">
 		      <div class="collapse navbar-collapse" id="navbarResponsive">
 		        <ul class="navbar-nav ml-auto">
-		          <li class="nav-item">
-		            <a class="nav-link" href="${pageContext.request.contextPath}/home.do">Home
-		            </a>
-		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/rank.do">검색&인기순위</a>
 		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/use.do">사용방법</a>
 		          </li>
-		          <li class="nav-item active" >
+		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/admin_insert.do">레시피 등록</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link" href="${pageContext.request.contextPath}/admin.do">레시피 편집
-		            </a>
+		            <a class="nav-link" href="${pageContext.request.contextPath}/admin.do">레시피 편집</a>
 		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a>
 		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/makepeople.do">만든사람들</a>
+		          </li>
 		        </ul>
 		      </div>
-	      </div>
+	      </c:if>
   </nav>
 <form action="admin_insert.do" method="post" enctype="multipart/form-data" style="background-image: url('${pageContext.request.contextPath}/resources/img/cookbackground1.jpg')">
   <fieldset>

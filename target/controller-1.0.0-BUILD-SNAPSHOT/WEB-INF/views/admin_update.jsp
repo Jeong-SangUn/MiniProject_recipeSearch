@@ -2,10 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
 <title>요리 정보</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -19,7 +26,6 @@ function readURL(input) {
             $('#blah')
                 .attr('src', e.target.result);
         };
-
         reader.readAsDataURL(input.files[0]);
     }
 }
@@ -49,77 +55,72 @@ width:400px;
 height:400px;
 }
 </style>
+<!-- Bootstrap core CSS -->
+<link
+	href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link
+	href="${pageContext.request.contextPath}/resources/css/full-width-pics.css"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap&subset=korean"
+	rel="stylesheet">
 <style>
-.contents {
-	white-space: pre-wrap;
-	font-size: x-large;
+#homeletter {
+	font-family: 'Nanum Brush Script', cursive;
+	font-size: 10.0em;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 600px;
 }
 </style>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-<script
-	src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-<%-- <form action=admin_update.do>
-	<table style="margin-left: auto; margin-right: auto;"
-		class="ui table vertical devTableStyle">
-		<colgroup>
-			<col width="800px">
-		</colgroup>
-		<tr style="text-align: center;">
-			<td><h2><input value="${recipe.rname}" /></h2></td>
-		</tr>
-		<tr style="text-align: center;">
-			<td><input type="file"><img src="recipeImg.do?id=${recipe.rid}" width="450px"
-				height="350px" /></input></td>
-		</tr>
-		<tr style="text-align: right;">
-			<td>
-				<form action="${pageContext.request.contextPath }/updateScore.do">
-					<h5>점수 평가</h5>
-					<select name="score">
-						<option value="5">5</option>
-						<option value="4.5">4.5</option>
-						<option value="4">4</option>
-						<option value="3.5">3.5</option>
-						<option value="3">3</option>
-						<option value="2.5">2.5</option>
-						<option value="2">2</option>
-						<option value="1.5">1.5</option>
-						<option value="1">1</option>
-						<option value="0.5">0.5</option>
-						<option value="0">0</option>
-					</select> <input type="hidden" name="rid" value="${recipe.rid}" /> <input
-						type="submit" value="평가" />
-				</form>
-			</td>
-		</tr>
-		<tr height="200px" class="contents">
-			<td><input value="${recipe.rcontent }"></input><br /></td>
-		</tr>
-		<tr height="200px" class="contents">
-			<td><textarea>${recipe.ritem }</textarea><br />
-		</tr>
-		<tr class="contents">
+<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="${pageContext.request.contextPath}/home.do">레시피를 부탁해</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>	
+		      
+	      <c:if test="${sessionScope.GRADE eq 9}">
+		      <div class="collapse navbar-collapse" id="navbarResponsive">
+		        <ul class="navbar-nav ml-auto">
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/rank.do">검색&인기순위</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/use.do">사용방법</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/admin_insert.do">레시피 등록</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/admin.do">레시피 편집</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/makepeople.do">만든사람들</a>
+		          </li>
+		        </ul>
+		      </div>
+	      </c:if>
+	      </div>
+  </nav>
 
-			<td><textarea>${recipe.rrecipe }</textarea></td>
-		</tr>
-
-	</table>
-	<input type="submit" value="수정">
-	<input type="submit" value="삭제">
-	<button><a href="admin.do" value="관리자 페이지" /></button> 
-</form>
- --%>
 <!-- 부트스트랩 영역 -->
+<div class="form-group" style="background-image: url('${pageContext.request.contextPath}/resources/img/cookbackground1.jpg')">
 <form action="admin_update.do" method="post" enctype="multipart/form-data">
   <fieldset>
-    <legend align="top">레시피 수정</legend>
     <div class="form-group row">
-      <div class="col-sm-10">
+      <div class="col-sm-12">
       	요리명
-        <input type="text" class="form-control-plaintext" name="rname" border="1" value="${recipe.rname}">
+        <textarea class="form-control" name="rname" rows="1">${recipe.rname}</textarea>
       </div>
     </div>
     <div class="col-md-12 uploadfrm">
@@ -130,11 +131,6 @@ height:400px;
         <div class="preview">
         	<img id="blah" src="recipeImg.do?id=${recipe.rid}" alt="" class="img-thumbnail border-0">
         </div>
-    <%-- <div class="form-group">
-      <label for="exampleInputFile">요리사진</label>
-      <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp"><img src="recipeImg.do?id=${recipe.rid}" width="450px"
-				height="350px" />      
-    </div> --%>
     <div class="form-group">
       <label for="exampleTextarea">재료명</label>
       <textarea class="form-control" name="ritem" id="exampleTextarea" rows="5">${recipe.ritem }</textarea>
@@ -147,10 +143,12 @@ height:400px;
       <label for="exampleTextarea">요리법</label>
       <textarea class="form-control" name="rrecipe" id="exampleTextarea" rows="5">${recipe.rrecipe }</textarea>
     </div>  
-    <button type="submit" class="btn btn-primary">수정</button>
+    <button type="submit" class="btn btn-primary" name="rid" value="${recipe.rid}">수정</button>
     <button type="button" class="btn btn-primary" onclick="location.href='admin_delete.do?id=${recipe.rid}'">삭제</button>
     <button type="button" class="btn btn-primary" onclick="location.href='admin.do'" >관리자페이지</button>
   </fieldset>
 </form>
+</div>
+
 </body>
 </html>

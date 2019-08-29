@@ -7,9 +7,8 @@
 
 	<insert id="insertMemberOne" parameterType="map">
 		INSERT INTO
-		R_MEMBER(MID,PW,NAME,AGE,PHONE,ADDR,MEM_BIRTH)
-		VALUES(#{m_id}, #{m_pw},
-		#{m_name},#{m_age},#{m_phone},#{m_addr},#{m_birth})
+		R_MEMBER(MID,PW,NAME,PHONE,ADDR,MEM_DATE,MEM_BIRTH)
+		VALUES(#{m_id}, #{m_pw},#{m_name},#{m_phone},#{m_addr},SYSDATE,#{m_birth})
 	</insert>
 
 	<select id="selectMemberLogin" parameterType="map"
@@ -61,4 +60,34 @@
 		FROM HITSCORE
 		WHERE MID = #{mid}
 	</select>
+	
+
+   
+   <!-- 회원정보 수정시 아이디 이름 생년월일 주소 폰번호 불러오기 -->
+   <select id="selectMemberOne" parameterType="String" resultType="map">
+      SELECT 
+         MID,NAME,MEM_BIRTH,ADDR,PHONE
+      FROM
+         R_MEMBER
+      WHERE
+         MID=#{mid}
+   </select>
+   
+   <!-- 마이페이지 정보업데이트 -->
+   <update id="updateMemberOne" parameterType="map">
+      UPDATE 
+         R_MEMBER 
+      SET 
+         PHONE=#{phone}, 
+         ADDR=#{addr}, 
+         MEM_BIRTH=#{birth}
+      WHERE 
+         MID=#{mid}
+   </update>
+   
+   <!-- 회원탈퇴 -->
+   <delete id="deleteMemberOne" parameterType="String">
+      DELETE FROM R_MEMBER WHERE MID = #{mid}
+   </delete>
+   
 </mapper>

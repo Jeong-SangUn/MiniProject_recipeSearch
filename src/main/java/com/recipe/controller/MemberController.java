@@ -1,5 +1,6 @@
 package com.recipe.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -55,21 +56,24 @@ public class MemberController {
 
 	@RequestMapping(value = "/join.do", method = RequestMethod.POST)
 	public String join(@RequestParam Map<String, Object> map, Model model, @RequestParam("m_id") String m_id,
-			@RequestParam("m_pw") String m_pw, @RequestParam("m_name") String m_name, @RequestParam("m_age") int m_age,
-			@RequestParam("m_phone") String m_phone, @RequestParam("m_birth") String m_birth,
+			@RequestParam("m_pw") String m_pw, @RequestParam("m_pw2") String m_pw2,
+			@RequestParam("m_name") String m_name,
+			@RequestParam("m_phone") int m_phone, @RequestParam("m_birth") String m_birth,
 			@RequestParam("m_addr1") String m_addr1, @RequestParam("m_addr2") String m_addr2) {
-		
+		Map<String, Object> rmap = cDAO.selectMemberLogin(map);
 		map.put("m_id", m_id);
 		map.put("m_pw", m_pw);
 		map.put("m_name", m_name);
-		map.put("m_age", m_age);
-		map.put("m_phone", Integer.parseInt(m_phone.replace("-", "")));
+		
+		map.put("m_phone", m_phone);
 		map.put("m_birth", m_birth);
 		map.put("m_addr", m_addr1 + " " + m_addr2);
-
-		cDAO.insertMemberOne(map);
-		return "redirect:/main.do";
-
+		if (rmap == null) {
+			cDAO.insertMemberOne(map);
+			return "redirect:/mem/login.do";
+		} else {
+			return "redirect:/mem/join.do";
+		}
 	}
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
@@ -103,4 +107,57 @@ public class MemberController {
 		return "logout";
 	}
 
+	// 마이페이지
+		@RequestMapping(value = "/list.do", method = RequestMethod.GET)
+		public String list(Model model, @RequestParam("mid") String mid) {
+			System.out.println("mid: "+mid);
+			Map<String, Object> map = cDAO.selectMemberOne(mid);
+			model.addAttribute("m", map);
+			return "list";
+		}
+
+		// 본인정보수정
+		@RequestMapping(value = "/modify.do", method = RequestMethod.GET)
+		public String modify(@RequestParam("mid") String mid, Model model) {
+			Map<String, Object> map = cDAO.selectMemberOne(mid);
+			model.addAttribute("map", map);
+			model.addAttribute("msg",map.get("mid"));
+			return "modify";
+		}
+		
+		// 본인정보수정
+		@RequestMapping(value = "/modify.do", method = RequestMethod.POST)
+		public String modify(@RequestParam HashMap<String,Object> map) {
+			cDAO.updateMemberOne(map);
+			System.out.println(map);
+			return "redirect:/mem/list.do?mid="+map.get("mid");
+		}
+		
+		//마이페이지 탈퇴
+		@RequestMapping(value="/delete.do",method=RequestMethod.GET)
+		public String delete(@RequestParam("mid") String mid,Model model) {
+			model.addAttribute("map",mid);
+			return "delete";
+		}
+		
+		//마이페이지 탈퇴
+		@RequestMapping(value="/delete.do",method=RequestMethod.POST)
+		public String delete(HttpSession session,Model model,@RequestParam Map<String, Object> map,
+								@RequestParam("m_id") String mid) {
+			Map<String,Object> cmap = cDAO.selectMemberLogin(map);
+			if (cmap != null) {
+				cDAO.deleteMemberOne(mid);
+				model.addAttribute("ok", "success");
+				session.invalidate();
+				return "redirect:/main.do";
+			}
+			else {
+				cDAO.selectMemberLogin(map);
+				System.out.println(mid);
+				model.addAttribute("ok", "failure");
+				model.addAttribute("map",mid);
+				return "delete";
+			}
+
+		}
 }

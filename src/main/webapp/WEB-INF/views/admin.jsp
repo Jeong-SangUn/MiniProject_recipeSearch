@@ -46,12 +46,10 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>	
+		     
+	      <c:if test="${sessionScope.GRADE eq 9}">
 		      <div class="collapse navbar-collapse" id="navbarResponsive">
 		        <ul class="navbar-nav ml-auto">
-		          <li class="nav-item">
-		            <a class="nav-link" href="${pageContext.request.contextPath}/home.do">Home
-		            </a>
-		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/rank.do">검색&인기순위</a>
 		          </li>
@@ -61,16 +59,18 @@
 		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/admin_insert.do">레시피 등록</a>
 		          </li>
-		          <li class="nav-item active">
-		            <a class="nav-link" href="${pageContext.request.contextPath}/admin.do">레시피 편집
-		            <span class="sr-only">(current)</span>
-		            </a>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/admin.do">레시피 편집</a>
 		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a>
 		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/makepeople.do">만든사람들</a>
+		          </li>
 		        </ul>
 		      </div>
+	      </c:if>
 	      </div>
   </nav>
 

@@ -82,6 +82,12 @@
 		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/logout.do">로그아웃</a>
 		          </li>
 		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/list.do?mid=${sessionScope.S_ID}">마이페이지</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="${pageContext.request.contextPath}/mem/delete.do?mid=${sessionScope.S_ID}">회원탈퇴</a>
+		          </li>
+		          <li class="nav-item">
 		            <a class="nav-link" href="${pageContext.request.contextPath}/makepeople.do">만든사람들</a>
 		          </li>
 		        </ul>

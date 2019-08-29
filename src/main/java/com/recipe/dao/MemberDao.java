@@ -1,5 +1,6 @@
 package com.recipe.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -58,4 +59,32 @@ public class MemberDao implements MemberService{
 		// TODO Auto-generated method stub
 		return sqlSession.update("Cook_Member.updateMemberHitInfo", map);
 	}
+
+	//회원목록
+	@Override
+	public List<Map<String, Object>> selectMemberList(Map<String, Object> map) {
+		return sqlSession.selectList("Cook_Member.selectMemberList",map);
+	}
+	
+	//회원목록 수정시 아이디,이름,폰번호 등등 가져옴
+	@Override
+	public Map<String, Object> selectMemberOne(String mid) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("Cook_Member.selectMemberOne",mid);
+	}
+	
+	//본인정보수정
+	@Override
+	public int updateMemberOne(Map<String, Object> map) {
+		return sqlSession.update("Cook_Member.updateMemberOne", map);
+	}
+	
+	//회원탈퇴
+	@Override
+	public int deleteMemberOne(String mid) {
+		// TODO Auto-generated method stub
+		return sqlSession.delete("Cook_Member.deleteMemberOne",mid);
+	}
+	
+	
 }
