@@ -58,7 +58,7 @@ public class MemberController {
 	public String join(@RequestParam Map<String, Object> map, Model model, @RequestParam("m_id") String m_id,
 			@RequestParam("m_pw") String m_pw, @RequestParam("m_pw2") String m_pw2,
 			@RequestParam("m_name") String m_name,
-			@RequestParam("m_phone") int m_phone, @RequestParam("m_birth") String m_birth,
+			@RequestParam("m_phone") String m_phone, @RequestParam("m_birth") String m_birth,
 			@RequestParam("m_addr1") String m_addr1, @RequestParam("m_addr2") String m_addr2) {
 		Map<String, Object> rmap = cDAO.selectMemberLogin(map);
 		map.put("m_id", m_id);
@@ -107,7 +107,7 @@ public class MemberController {
 		return "logout";
 	}
 
-	// 마이페이지
+		// 마이페이지
 		@RequestMapping(value = "/list.do", method = RequestMethod.GET)
 		public String list(Model model, @RequestParam("mid") String mid) {
 			System.out.println("mid: "+mid);

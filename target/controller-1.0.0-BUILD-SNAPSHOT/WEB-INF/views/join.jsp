@@ -53,9 +53,10 @@ input {
 	}
 	function showPopup() {
 		window.open("popup.do", "a",
-				"width=400, height=70, left=700, top=200");
+				"width=500, height=200, left=700, top=200");
 	}
 </script>
+
 
 
 <body>
@@ -144,7 +145,7 @@ input {
 					<tr>
 						<td>아이디</td>
 						<td><input type="text" name="m_id" id="m_id" style="background-color: #e2e2e2;" readonly /></td>
-						<td colspan="2"><input type="button" onclick="showPopup();" value="중복체크" /></td>
+						<td colspan="2"><input type="button" onclick="showPopup();" value="중복체크" class="btn btn-primary btn-sm"/></td>
 					</tr>
 					<tr>
 						<td>암호 </td>
@@ -169,14 +170,14 @@ input {
 					<tr>
 						<td>주소 </td>
 						<td><input type="text" id="m_addr1" name="m_addr1" readonly /></td>
-						<td colspan="2"><input type="button" value="주소검색" onclick="openDaumZipAddress()" /></td>
+						<td colspan="2"><input type="button" value="주소검색" onclick="openDaumZipAddress()" class="btn btn-primary btn-sm"/></td>
 					</tr>
 					<tr>
 						<td>상세주소 </td>
 						<td colspan="3"><input type="text" id="m_addr2" name="m_addr2" placeholder="직접입력" id="address_etc" /></td>
 					</tr>
 					<tr>
-						<td colspan="4" align="right"><input type="button" id="check" value="회원가입" /></td>
+						<td colspan="4" align="right"><input type="button" id="check" value="회원가입" class="btn btn-primary btn-sm"/></td>
 					</tr>
 				</table>
 			</form>

@@ -31,4 +31,9 @@ public class MainController {
 		return "makepeople"; 
 	}
 	
+	@RequestMapping(value="/new.do", method = RequestMethod.GET)
+	public String newf() {
+		return "NewFile"; 
+	}
+	
 }

@@ -131,7 +131,7 @@
 	      </c:if>
     </div>
   </nav>
-    <div> 
+    <div style="width:1000px; margin-left: auto; margin-right: auto;"> 
     <table style="margin-left: auto; margin-right: auto;"
 		class="ui table vertical devTableStyle">
 		<colgroup>

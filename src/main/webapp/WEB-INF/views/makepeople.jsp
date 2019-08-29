@@ -29,7 +29,7 @@
 <style>
 h1{
 	font-family: 'Jua', sans-serif;
-	font-size: 4.0em;
+		font-size: 1.5em;
 }
 img {
     width: 250px;
@@ -142,9 +142,10 @@ ul.img {
     			<div style="text-align: center;">
     				<img src="${pageContext.request.contextPath}/resources/img/make_people1.png"><br>
     			</div>
-    			<h1 style="text-align: center;">신경종</h1>
+    			<h1>&nbsp신경종</h1>
     			<ul class="img">
     				<li>DB 설계 및 관리</li>
+    				<li>UI 디자인 구성 및 관리</li>
     			</ul>
     		</div>
     		<div style="width:100px; background-color: #FCF8F3; float: left; "><br></div>
@@ -153,10 +154,11 @@ ul.img {
     			<div style="text-align: center;">
     				<img src="${pageContext.request.contextPath}/resources/img/make_people2.png"><br>
     			</div>
-    			<h1 style="text-align: center;">정상운</h1>
+    			<h1>&nbsp정상운</h1>
     			<ul class="img">
     				<li>레시피 검색 및 출력</li>
-    				<li>평점 및 댓글 기능</li>
+    				<li>레시피별 평점 평가</li>
+					<li>댓글 등록/삭제</li>
     			</ul>
     		</div>
     		
@@ -166,10 +168,11 @@ ul.img {
     			<div style="text-align: center;">
     				<img src="${pageContext.request.contextPath}/resources/img/make_people3.png"><br>
     			</div>
-    			<h1 style="text-align: center;">정광수</h1>
+    			<h1>&nbsp정광수</h1>
     			<ul class="img">
-    				<li>로그인 및 회원가입</li>
-    				<li>마이페이지 관리</li>
+    				<li>로그인/로그아웃</li>
+    				<li>회원가입/탈퇴</li>
+    				<li>마이페이지 관리/수정</li>
     			</ul>
     		</div>
     		
@@ -179,7 +182,7 @@ ul.img {
     			<div style="text-align: center;">
     				<img src="${pageContext.request.contextPath}/resources/img/make_people4.png"><br>
     			</div>
-    			<h1 style="text-align: center;">이기영</h1>
+    			<h1>&nbsp이기영</h1>
     			<ul class="img">
     				<li>관리자 페이지</li>
     				<li>레시피 등록/수정/삭제</li>
