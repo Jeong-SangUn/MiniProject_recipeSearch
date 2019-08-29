@@ -12,7 +12,7 @@
 	
 $(document).ready(function() {
 	   swal("","로그아웃되었습니다.","success").then(function(result){
-	       window.location.href = '/controller/home.do';
+	       window.location.href = '/jsu/home.do';
 	     })
 	});
 

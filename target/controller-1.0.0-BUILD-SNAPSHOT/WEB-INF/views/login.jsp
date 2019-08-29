@@ -28,6 +28,8 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap&subset=korean"
 	rel="stylesheet">
+<script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
 .container1 {
     width: 400px;
@@ -134,6 +136,13 @@
 				<button type="submit" class="btn btn-primary btn-md" onclick="javascript: form.action='${pageContext.request.contextPath}/mem/join.do' ;method='get';">회원가입</button>
 			</form>
 	</div>
+	<script>
+		var msg = "${msg}";
+	   		if (msg == 'failure') {
+	      swal("회원정보가 틀립니다. 아이디와 비밀번호를 확인해주세요.");
+	   	}
+   </script>
+	
 	
 	<section class="py-5 bg-image-full" style="background-image: url('${pageContext.request.contextPath}/resources/img/background.jpg');">
     	<div style="height: 700px;"></div>

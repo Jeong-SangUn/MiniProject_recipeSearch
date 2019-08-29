@@ -34,7 +34,8 @@ input {
 	outline: none;
 }
 </style>
-
+<script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <script type="text/JavaScript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -52,7 +53,7 @@ input {
 	}
 	function showPopup() {
 		window.open("popup.do", "a",
-				"width=600, height=300, left=1000, top=400");
+				"width=400, height=70, left=700, top=200");
 	}
 </script>
 
@@ -142,7 +143,7 @@ input {
 				<table style="margin-left: auto; margin-right: auto;"  id="joinlocation" class="table table-bordered">
 					<tr>
 						<td>아이디</td>
-						<td><input type="text" name="m_id" id="m_id" readonly /></td>
+						<td><input type="text" name="m_id" id="m_id" style="background-color: #e2e2e2;" readonly /></td>
 						<td colspan="2"><input type="button" onclick="showPopup();" value="중복체크" /></td>
 					</tr>
 					<tr>
@@ -203,23 +204,23 @@ input {
 				var m_addr2 = $("#m_addr2").val();
 				
 				if (isNaN(m_birth)) {
-					alert("생년월일은 숫자만 입력하세요(ex 1993년 7월 8일 -> 930708)");
+					swal("생년월일은 숫자만 입력하세요(ex 1993년 7월 8일 -> 930708)");
 				}
 				else if (isNaN(m_phone)) {
-					alert("휴대번호는 숫자만 입력하시요 (ex 01011112222)");
+					swal("휴대번호는 숫자만 입력하시요 (ex 01011112222)");
 				}
 				else if (m_id == "") {
-					alert("아이디를 입력하세요");
+					swal("아이디를 입력하세요");
 				} else if (m_pw != m_pw2) {
-					alert("암호가 다릅니다.");
+					swal("암호가 다릅니다.");
 				} else if (m_name == "") {
-					alert("이름을 입력하세요");
+					swal("이름을 입력하세요");
 				} else if (m_phone == "") {
-					alert("휴대번호를 입력하세요");
+					swal("휴대번호를 입력하세요");
 				} else if (m_birth == "") {
-					alert("생년월일을 입력하세요");
+					swal("생년월일을 입력하세요");
 				} else if (m_addr2 == "") {
-					alert("상세주소를 입력하세요");
+					swal("상세주소를 입력하세요");
 				} else {
 					$('form').submit();
 				} 

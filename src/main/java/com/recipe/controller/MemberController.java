@@ -134,30 +134,39 @@ public class MemberController {
 		}
 		
 		//마이페이지 탈퇴
-		@RequestMapping(value="/delete.do",method=RequestMethod.GET)
-		public String delete(@RequestParam("mid") String mid,Model model) {
-			model.addAttribute("map",mid);
-			return "delete";
-		}
-		
-		//마이페이지 탈퇴
-		@RequestMapping(value="/delete.do",method=RequestMethod.POST)
-		public String delete(HttpSession session,Model model,@RequestParam Map<String, Object> map,
-								@RequestParam("m_id") String mid) {
-			Map<String,Object> cmap = cDAO.selectMemberLogin(map);
-			if (cmap != null) {
-				cDAO.deleteMemberOne(mid);
-				model.addAttribute("ok", "success");
-				session.invalidate();
-				return "redirect:/main.do";
-			}
-			else {
-				cDAO.selectMemberLogin(map);
-				System.out.println(mid);
-				model.addAttribute("ok", "failure");
-				model.addAttribute("map",mid);
-				return "delete";
-			}
+		   @RequestMapping(value="/delete.do",method=RequestMethod.GET)
+		   public String delete(@RequestParam("mid") String mid,Model model) {
+		      Map<String, Object> parameter_map = new HashMap<String, Object>();
+		      parameter_map.put("m_id", mid);
+		      model.addAttribute("MID",mid);
+		      
+		      
+		      Map<String, Object> rmap = cDAO.selectoverlap(parameter_map);
+		      
+		      model.addAttribute("MPW",rmap.get("PW"));
+		       
+		      return "delete";
+		   }
+		   
+		   //마이페이지 탈퇴
+		   @RequestMapping(value="/delete.do",method=RequestMethod.POST)
+		   public String delete(HttpSession session,Model model,@RequestParam Map<String, Object> map,
+		                     @RequestParam("m_id") String mid) {
+		      System.out.println("확인");
+		      Map<String,Object> cmap = cDAO.selectMemberLogin(map);
+		      if (cmap != null) {
+		         cDAO.deleteMemberOne(mid);
+		         model.addAttribute("ok", "success");
+		         session.invalidate();
+		         return "redirect:/home.do";
+		      }
+		      else {
+		         cDAO.selectMemberLogin(map);
+		         System.out.println(mid);
+		         model.addAttribute("ok", "failure");
+		         model.addAttribute("map",mid);
+		         return "delete";
+		      }
 
-		}
+		   }
 }

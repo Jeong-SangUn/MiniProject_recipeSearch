@@ -79,6 +79,7 @@ public class RecipeController {
 				model.addAttribute("score_chk", "score_ture");
 				return "redirect:recipe.do?id=" + rid;
 			} else {
+				model.addAttribute("score_chk", "score_false");
 				mDAO.updateMemberScoreInfo(map);
 			}
 		}
@@ -127,9 +128,10 @@ public class RecipeController {
 	}
 
 	@RequestMapping(value = "/recipe.do", method = RequestMethod.GET)
-	public String recipe(@RequestParam("id") String rid, Model model, HttpSession httpSession) {		
+	public String recipe(@RequestParam(value="score_chk", required=false) String score_chk,@RequestParam("id") String rid, Model model, HttpSession httpSession) {		
 		int id = Integer.parseInt(rid);
-		
+		score_chk = score_chk + "chk";
+		model.addAttribute("score_chk", score_chk);
 		Recipe recipe = rDAO.selectRecipeOne(id);
 		List<Comment> comment = rDAO.selectComment(id);
 		String item = recipe.getRitem();

@@ -32,12 +32,7 @@
 	src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.min.js"></script>
 <script src="https://unpkg.com/sweetswal/dist/sweetswal.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-	var score_chk = "${score_chk}";
-	if(score_chk == "score_chk"){
-		swal("이미 평가하셨습니다");
-	}
-</script>
+
 <style>
 
 
@@ -151,7 +146,7 @@
 		</tr>
 		<tr style="text-align: right;">
 			<td>
-				<form action="${pageContext.request.contextPath }/updateScore.do">
+				<form action="${pageContext.request.contextPath }/updateScore.do" >
 					<h5>점수 평가</h5>
 					<p align="right">
 					<select name="score" class="form-control" style="width:70px" >
@@ -233,7 +228,17 @@
 <script>
 		$(".devTableStyle td").attr("style", "word-break:break-all");
 </script>
+<script>
 
+	var score_chk = "${score_chk}";
+	console.log(score_chk);
+	if(score_chk == "score_turechk"){
+		swal("이미 평가하셨습니다");
+	}else if(score_chk == "score_falsechk"){
+		swal("평가가 완료되었습니다");
+	}
+	
+</script>
 
 
   <!-- Footer -->
