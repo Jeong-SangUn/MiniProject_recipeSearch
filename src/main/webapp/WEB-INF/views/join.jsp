@@ -239,23 +239,23 @@ input {
 				var m_addr2 = $("#m_addr2").val();
 				
 				if(m_birth.length != 6){
-					swal("생년월일을 6자리 입력하세요\n(ex 1993년 7월 8일 -> 930708)");
+					swal("생년월일 6자리를 입력해주세요\n(ex 1993년 7월 8일 -> 930708)");
 				} else if (isNaN(m_birth)) {
-					swal("생년월일은 숫자만 입력하세요(ex 1993년 7월 8일 -> 930708)");
+					swal("생년월일은 숫자만 입력해주세요\n(ex 1993년 7월 8일 -> 930708)");
 				} else if (isNaN(m_phone)) {
-					swal("휴대번호는 숫자만 입력하시요 (ex 01011112222)");
-				} else if (m_id == "") {
-					swal("아이디를 입력하세요");
+					swal("휴대번호는 숫자만 입력해주세요\n(ex 01011112222)");
+				} else if (m_phone.length != 11) {
+					swal("휴대번호 숫자 11자리를 입력하세요\n(ex 01011112222)");
+				}else if (m_id == "") {
+					swal("아이디를 입력해주세요");
 				} else if (m_pw != m_pw2 || m_pw.length < 6 || m_pw.length > 16 ){
 					swal("암호를 확인해주세요");
 				} else if (m_name == "") {
-					swal("이름을 입력하세요");
-				} else if (m_phone == "") {
-					swal("휴대번호를 입력하세요");
+					swal("이름을 입력해주세요");
 				} else if (m_addr1 == "") {
-					swal("주소를 입력하세요");
+					swal("주소를 입력해주세요");
 				} else if (m_addr2 == "") {
-					swal("상세주소를 입력하세요");
+					swal("상세주소를 입력해주세요");
 				} else {
 					$('form').submit();
 				}
