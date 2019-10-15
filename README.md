@@ -33,7 +33,7 @@
 
 
 <h3>회원가입 페이지</h3>
-![1571136563344](./README_img/1571136563344.png)
+![1571136563344](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571136563344.png)
 
 - 아이디 : DB 테이블값 확인으로 중복체크
 
@@ -44,20 +44,20 @@
 
 
 <h3>레시피검색 페이지</h3>
-![1571137237873](./README_img/1571137237873.png)
+![1571137237873](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571137237873.png)
 
 - 재료명 검색 : 해당 재료를 사용한 요리 레시피 검색
 
   
 
-![1571137209129](./README_img/1571137209129.png)
+![1571137209129](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571137209129.png)
 
 - 요리명 검색 : 해당 이름으로 된 요리 레시피 검색
 
 
 
 <h3>레시피 페이지</h3>
-![1571137687307](./README_img/1571137687307.png)
+![1571137687307](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571137687307.png)
 
 - 점수 평가 : 하나의 아이디로 각 요리레시피마다 한번씩의 평가만 가능하다. 
 
@@ -69,13 +69,13 @@
 
 
 
-![1571138196488](./README_img/1571138196488.png)
+![1571138196488](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571138196488.png)
 
 - 레시피 내용 : DB에서 레시피 내용을 가져온다. 가져 올 때 사용자가 보기 좋게 controller 부분에서 데이터 정제 후 view로 내용을 넘긴다.
 
   
 
-![1571138053096](./README_img/1571138053096.png)
+![1571138053096](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571138053096.png)
 
 - 댓글 등록 : 원하는 내용을 작성 후 댓글 등록 버튼을 누르면 댓글이 등록 된다.
 - 댓글 삭제 : 자신이 입력한 댓글을 삭제할 수 있다. 다른 아이디는 삭제버튼 생성되지 않는다.
@@ -83,31 +83,31 @@
 
 
 <h3>마이 페이지</h3>
-![1571138404635](./README_img/1571138404635.png)
+![1571138404635](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571138404635.png)
 
 - 정보 수정 : 자신이 회원가입 시 작성한 내용들을 수정할 수 있다.
 
 
 
 <h3>회원탈퇴 페이지</h3>
-![1571138464396](./README_img/1571138464396.png)
+![1571138464396](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571138464396.png)
 
 - 회원 탈퇴 : 탈퇴 안내를 읽고 체크 박스 체크 후 확인 버튼을 누르면 아래의 비밀번호 입력란이 뜬다. 자신의 비밀번호를 맞게 입력하면 회원탈퇴가 완료된다.
 
 
 
 <h3>관리자 계정 접속</h3>
-![1571139061513](./README_img/1571139061513.png)
+![1571139061513](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571139061513.png)
 
 - 관리자 계정으로 접속하면 상단의 배너 내용들이 바뀐다.
 - 아래 그림은 일반 사용자 계정 접속 시 배너 내용이다.
 
-![1571139099399](./README_img/1571139099399.png)
+![1571139099399](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571139099399.png)
 
 
 
 <h3>레시피 등록 페이지</h3>
-![1571139247397](./README_img/1571139247397.png)
+![1571139247397](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571139247397.png)
 
 - 요리 사진 : 요리 사진은 자신의 컴퓨터에 저장된 이미지 파일을 가져온다. 가지고 오게 되면 해당 이미지가 위의 사진처럼 바로 보여지게 된다. (자바스크립트를 이용 readURL 함수를 만들어 이미지를 불러 오면 해당 이미지를 불러들여서 페이지에 보이게 함.)
 - 등록 : 나머지 내용을 입력 후에 등록 버튼을 누르면 레시피가 등록된다. DB에 새로운 레시피 추가
@@ -116,7 +116,7 @@
 
 
 <h3>레시피 편집 페이지</h3>
-![1571139446615](./README_img/1571139446615.png)
+![1571139446615](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571139446615.png)
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-![1571139536233](./README_img/1571139536233.png)
+![1571139536233](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571139536233.png)
 
 - 수정 : 내용을 바꾼 후 버튼을 누르면 수정된 내용으로 DB가 수정된다.
 - 삭제 : 현재 레시피가 삭제된다. 레시피 아이디 기본키를 이용하여 DB에서 삭제된다.
