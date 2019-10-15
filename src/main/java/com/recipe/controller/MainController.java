@@ -16,6 +16,11 @@ public class MainController {
 		return "main"; 
 	}
 	
+	@RequestMapping(value="/", method = RequestMethod.GET)
+	public String homeStart() {
+		return "home";
+	}
+	
 	@RequestMapping(value="/home.do", method = RequestMethod.GET)
 	public String home() {
 		return "home";

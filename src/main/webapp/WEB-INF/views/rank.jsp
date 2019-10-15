@@ -50,10 +50,10 @@
 						</a></td>
 						<td >${list.rcontent}<div class="view_table">${list.ritem}</div></td>
 						<td align=center >
-						<c:if test="${list.score_avg eq 0}">0.0</c:if>
-						<c:if test="${list.score_avg ne 0}">
-						<fmt:formatNumber value="${list.score_avg}" pattern=".0"/>
-						</c:if>
+							<c:if test="${list.score_avg eq 0}">0.0</c:if>
+							<c:if test="${list.score_avg ne 0}">
+								<fmt:formatNumber value="${list.score_avg}" pattern=".0"/>
+							</c:if>
 						</td>
 						
 

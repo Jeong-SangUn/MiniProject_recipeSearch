@@ -40,11 +40,6 @@ public class RecipeController {
 	@Autowired
 	private MemberService mDAO;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String main() {
-		return "main";
-	}
-
 	@RequestMapping(value = "/rank.do", method = RequestMethod.GET)
 	public String rank(Model model) {
 		List<Recipe> rankList = rDAO.rankRecipeList();
