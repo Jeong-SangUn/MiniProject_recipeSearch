@@ -33,6 +33,8 @@
 
 
 <h3>회원가입 페이지</h3>
+
+
 ![1571136563344](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571136563344.png)
 
 - 아이디 : DB 테이블값 확인으로 중복체크
@@ -44,6 +46,8 @@
 
 
 <h3>레시피검색 페이지</h3>
+
+
 ![1571137237873](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571137237873.png)
 
 - 재료명 검색 : 해당 재료를 사용한 요리 레시피 검색
@@ -57,6 +61,8 @@
 
 
 <h3>레시피 페이지</h3>
+
+
 ![1571137687307](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571137687307.png)
 
 - 점수 평가 : 하나의 아이디로 각 요리레시피마다 한번씩의 평가만 가능하다. 
@@ -83,6 +89,8 @@
 
 
 <h3>마이 페이지</h3>
+
+
 ![1571138404635](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571138404635.png)
 
 - 정보 수정 : 자신이 회원가입 시 작성한 내용들을 수정할 수 있다.
@@ -90,6 +98,8 @@
 
 
 <h3>회원탈퇴 페이지</h3>
+
+
 ![1571138464396](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571138464396.png)
 
 - 회원 탈퇴 : 탈퇴 안내를 읽고 체크 박스 체크 후 확인 버튼을 누르면 아래의 비밀번호 입력란이 뜬다. 자신의 비밀번호를 맞게 입력하면 회원탈퇴가 완료된다.
@@ -97,6 +107,8 @@
 
 
 <h3>관리자 계정 접속</h3>
+
+
 ![1571139061513](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571139061513.png)
 
 - 관리자 계정으로 접속하면 상단의 배너 내용들이 바뀐다.
@@ -107,6 +119,8 @@
 
 
 <h3>레시피 등록 페이지</h3>
+
+
 ![1571139247397](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571139247397.png)
 
 - 요리 사진 : 요리 사진은 자신의 컴퓨터에 저장된 이미지 파일을 가져온다. 가지고 오게 되면 해당 이미지가 위의 사진처럼 바로 보여지게 된다. (자바스크립트를 이용 readURL 함수를 만들어 이미지를 불러 오면 해당 이미지를 불러들여서 페이지에 보이게 함.)
@@ -116,6 +130,8 @@
 
 
 <h3>레시피 편집 페이지</h3>
+
+
 ![1571139446615](https://github.com/Jeong-SangUn/MiniProject_recipeSearch/blob/master/README_img/1571139446615.png)
 
 
